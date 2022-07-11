@@ -1,9 +1,9 @@
-package les001;
+package les001.task5;
 
 import java.sql.*;
 import java.util.Date;
 
-public class task5 {
+public class Main {
     public static void main(String[] args) {
         final String URL = "jdbc:mysql://localhost:3306/myjoinsdb1";
         final String LOGIN = "root";
