@@ -1,4 +1,4 @@
-package les001.task1;
+package les001.task2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
