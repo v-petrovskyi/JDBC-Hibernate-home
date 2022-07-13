@@ -1,0 +1,5 @@
+CREATE TABLE test_table_task1 (id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, user_name VARCHAR(30), password VARCHAR(30));
+INSERT INTO test_table_task1(user_name, password) VALUES ('Andrii', 'qwerty123');
+INSERT INTO test_table_task1(user_name, password) VALUES ('super_user', 'jkf:OUG40(&');
+INSERT INTO test_table_task1(user_name, password) VALUES ('John', 'some-password');
+INSERT INTO test_table_task1(user_name, password) VALUES ('Olga', '****');
