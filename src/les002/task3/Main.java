@@ -5,10 +5,13 @@ import les002.task3.entity.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+    static List<Car> taksopark;
+
     public static void main(String[] args) {
-        List<Car> taksopark = new ArrayList<>();
+        taksopark = new ArrayList<>();
         taksopark.add(new Sedan(165, 4, "Passat", 15_000, 10.5));
         taksopark.add(new Sedan(150, 4, "Accord", 19_000, 9.5));
         taksopark.add(new Coupe(160, 1, "Z350", 25_000, 11.5));
@@ -20,22 +23,43 @@ public class Main {
         taksopark.add(new Van(155, 6, "Touran", 10_500, 8.3));
         taksopark.add(new Van(165, 7, "Zafira", 9_500, 7.3));
 
-        // todo написати консоль
+        consol();
+    }
 
+    private static void consol() {
+        System.out.println("""
+                \tВиберіть пункт меню:
+                1 Подсчитать стоимость автопарка
+                2 Провести сортировку автомобилей парка по расходу топлива
+                3 Найти автомобиль в компании, соответствующий заданному диапазону параметров скорости
+                4 вийти""");
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        switch (input) {
+            case 1 -> {
+                System.out.println("стоимость автопарка: " + totalCarCost(taksopark));
+                consol();
+            }
+            case 2 -> {
+                sortingByFuel(taksopark);
+                System.out.println(taksopark);
+                consol();
+            }
+            case 3 -> {
+                System.out.println("введіть мінімальну швидкість");
 
-        System.out.println(totalCarCost(taksopark));
-
-        int min = 150;
-        int max = 160;
-        choiseCar(taksopark, min, max);
-
-        sortingByFuel(taksopark);
-
-        System.out.println(taksopark);
-
+                int min = scanner.nextInt();
+                System.out.println("введіть максимальну швидкість");
+                int max = scanner.nextInt();
+                choiseCar(taksopark, min, max);
+                consol();
+            }
+            case 4 -> System.exit(0);
+        }
     }
 
     private static void choiseCar(List<Car> taksopark, int min, int max) {
+
         taksopark.stream().filter(x -> (x.getMaxSpeed() >= min) && (x.getMaxSpeed() <= max)).forEach(System.out::println);
     }
 
