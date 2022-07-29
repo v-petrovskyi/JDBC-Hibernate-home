@@ -32,6 +32,11 @@ public class Main {
         carDao.addCar(car10);
 
 
+        System.out.println(carDao.getCarList());
+        System.out.println(carDao.sortCars());
+        System.out.println(carDao.totalCostOfCars());
+        System.out.println(carDao.getChosenCars(160, 170));
+
 
     }
 }

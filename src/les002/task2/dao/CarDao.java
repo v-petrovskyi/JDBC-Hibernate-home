@@ -7,7 +7,7 @@ import java.util.List;
 public interface CarDao {
     List<Car> getCarList();
     void addCar(Car car);
-    List<Car> sortCars(List<Car> carList);
+    List<Car> sortCars();
     int totalCostOfCars();
     List<Car> getChosenCars(int minSpeed, int maxSpeed);
 
